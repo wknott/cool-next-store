@@ -15,7 +15,7 @@ export const Navigation = () => (
 			</li>
 			<li>
 				<ActiveLink
-					href="/products"
+					href="/products/0"
 					className="text-blue-400 hover:text-blue-600"
 					activeClassName="font-semibold underline"
 				>
