@@ -16,12 +16,15 @@ type ProductResponseItem = {
 	longDescription: string;
 };
 
-export const getProductList = async (pageNumber = 0) => {
+export const getProductList = async (
+	pageNumber = 1,
+	numberOfProducts = NUMBER_OF_PRODUCTS_ON_PAGE,
+) => {
 	const params = new URLSearchParams();
-	params.append("take", String(NUMBER_OF_PRODUCTS_ON_PAGE));
+	params.append("take", String(numberOfProducts));
 
-	if (pageNumber > 0) {
-		params.append("offset", String(pageNumber * NUMBER_OF_PRODUCTS_ON_PAGE));
+	if (pageNumber > 1) {
+		params.append("offset", String((pageNumber - 1) * numberOfProducts));
 	}
 
 	const url = `${API_URL}?${params.toString()}`;
