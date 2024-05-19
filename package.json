@@ -10,26 +10,27 @@
 		"lint": "next lint --fix --dir src"
 	},
 	"dependencies": {
-		"clsx": "^2.1.0",
+		"clsx": "^2.1.1",
+		"lucide-react": "^0.378.0",
 		"next": "14.1.0",
-		"react": "^18",
-		"react-dom": "^18"
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1"
 	},
 	"devDependencies": {
-		"@types/node": "^20",
-		"@types/react": "^18",
-		"@types/react-dom": "^18",
-		"@typescript-eslint/eslint-plugin": "^7.0.1",
-		"@typescript-eslint/parser": "^7.0.1",
-		"autoprefixer": "^10.0.1",
-		"eslint": "^8",
+		"@types/node": "^20.12.12",
+		"@types/react": "^18.3.2",
+		"@types/react-dom": "^18.3.0",
+		"@typescript-eslint/eslint-plugin": "^7.9.0",
+		"@typescript-eslint/parser": "^7.9.0",
+		"autoprefixer": "^10.4.19",
+		"eslint": "^8.57.0",
 		"eslint-config-next": "14.1.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-import": "^2.29.1",
-		"postcss": "^8",
+		"postcss": "^8.4.38",
 		"prettier": "^3.2.5",
-		"prettier-plugin-tailwindcss": "^0.5.11",
-		"tailwindcss": "^3.3.0",
-		"typescript": "^5"
+		"prettier-plugin-tailwindcss": "^0.5.14",
+		"tailwindcss": "^3.4.3",
+		"typescript": "^5.4.5"
 	}
 }
