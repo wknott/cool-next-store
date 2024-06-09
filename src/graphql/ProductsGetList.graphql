@@ -1,16 +1,7 @@
 query ProductsGetList($perPage: Int = 10, $page: Int = 0) {
 	products(take: $perPage, skip: $page) {
 		data {
-			id
-			name
-			categories {
-				name
-			}
-			description
-			images {
-				url
-			}
-			price
+			...ProductListItem
 		}
 	}
 }

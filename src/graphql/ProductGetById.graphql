@@ -1,14 +1,5 @@
 query ProductGetById($productId: ID!) {
 	product(id: $productId) {
-		id
-		name
-		categories {
-			name
-		}
-		description
-		images {
-			url
-		}
-		price
+		...ProductListItem
 	}
 }
