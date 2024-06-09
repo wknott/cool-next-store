@@ -1,7 +1,8 @@
 import { type Metadata } from "next";
+import { notFound } from "next/navigation";
 import { getProductById } from "@/api/products";
 import { ProductDetailsDescription } from "@/ui/atoms/ProductDetailsDescription";
-import { ProductImage } from "@/ui/atoms/ProductListItemImage";
+import { ProductImage } from "@/ui/atoms/ProductImage";
 
 export async function generateMetadata({
 	params,
@@ -9,6 +10,13 @@ export async function generateMetadata({
 	params: { productId: string };
 }): Promise<Metadata> {
 	const product = await getProductById(params.productId);
+
+	if (!product) {
+		return {
+			title: "Product not found",
+			description: "The product you are looking for does not exist.",
+		};
+	}
 
 	return {
 		title: product.name,
@@ -25,10 +33,14 @@ export default async function SingleProductPage({
 }) {
 	const product = await getProductById(params.productId);
 
+	if (!product) {
+		notFound();
+	}
+
 	return (
 		<article className="flex gap-4">
-			<ProductImage {...product.image} width={480} height={480} />
-			<ProductDetailsDescription product={product} />
+			{product.images[0] && <ProductImage url={product.images[0].url} alt={product.name} width={480} height={480} />}
+			<ProductDetailsDescription product={{ ...product, category: product.categories[0]?.name }} />
 		</article>
 	)
 }

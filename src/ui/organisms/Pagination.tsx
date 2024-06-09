@@ -1,20 +1,21 @@
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { ActiveLink } from "@/ui/atoms/ActiveLink";
 
 export function Pagination({ pageNumber }: { pageNumber: string }) {
   return (
-    <nav aria-label="pagination">
+    <nav aria-label="pagination" className="flex justify-center m-4">
       <ActiveLink
-        href={`/products/${pageNumber === "1" ? "1" : +pageNumber - 1}`}
+        href={`${pageNumber === "1" ? "1" : +pageNumber - 1}`}
         className="text-blue-400 hover:text-blue-600"
         activeClassName="font-semibold underline"
       >
-        Poprzednia strona
+        <ArrowLeft />
       </ActiveLink>
       <ActiveLink
-        href={`/products/${+pageNumber + 1}`}
+        href={`${+pageNumber + 1}`}
         className="text-blue-400 hover:text-blue-600" activeClassName="font-semibold underline"
       >
-        Następna strona
+        <ArrowRight />
       </ActiveLink>
     </nav>
   );

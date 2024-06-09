@@ -4,8 +4,8 @@ export default async function ProductListPageLayout({ children, params }: { chil
 
   return (
     <main>
-      <Pagination pageNumber={params.pageNumber} />
       {children}
+      <Pagination pageNumber={params.pageNumber} />
     </main>
   )
 }

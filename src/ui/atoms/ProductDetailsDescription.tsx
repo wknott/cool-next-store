@@ -1,7 +1,7 @@
 type ProductDetailsDescriptionProps = {
   product: {
     name: string;
-    category: string;
+    category?: string;
     price: number;
     description: string;
   };
@@ -14,9 +14,9 @@ export const ProductDetailsDescription = ({
     <div className="mt-2">
       <div>
         <h1 className="text-sm text-2xl font-semibold text-gray-700">{name}</h1>
-        <p className="text-sm text-gray-500  mt-4">
+        {category && <p className="text-sm text-gray-500  mt-4">
           <span className="sr-only">Kategoria:</span> {category}
-        </p>
+        </p>}
       </div>
       <p className="text-sm font-medium text-gray-900 mt-4">
         <span className="sr-only">Cena:</span>{" "}
