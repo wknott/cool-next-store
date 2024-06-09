@@ -4,6 +4,9 @@ const routes = [
 	{ href: "/", label: "Home", exact: true },
 	{ href: "/products", label: "All" },
 	{ href: "/categories/t-shirts", label: "T-shirts" },
+	{ href: "/categories/hoodies", label: "Hoodies" },
+	{ href: "/categories/accessories", label: "Accessories" },
+	{ href: "/collections/summer-vibes", label: "Summer Vibes" },
 ];
 
 export const Navigation = () => (
@@ -11,10 +14,7 @@ export const Navigation = () => (
 		<ul className="flex h-16 max-w-full space-x-8 whitespace-nowrap lg:px-8">
 			{routes.map(({ href, label, exact }) => (
 				<li key={href} className="first:pl-4 last:pr-4 lg:px-0">
-					<ActiveLink
-						href={href}
-						exact={exact}
-					>
+					<ActiveLink href={href} exact={exact}>
 						{label}
 					</ActiveLink>
 				</li>
