@@ -1,7 +1,7 @@
-query CategoriesGetProdutsListBySlug($slug: String!) {
-	category(slug: $slug) {
-		products {
-			...ProductListItem
-		}
-	}
+query CategoriesGetProductsListBySlug($slug: String!) {
+    category(slug: $slug) {
+        products {
+            ...ProductListItem
+        }
+    }
 }
