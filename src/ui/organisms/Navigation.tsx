@@ -1,27 +1,24 @@
 import { ActiveLink } from "@/ui/atoms/ActiveLink";
 
+const routes = [
+	{ href: "/", label: "Home", exact: true },
+	{ href: "/products", label: "All" },
+	{ href: "/categories/t-shirts", label: "T-shirts" },
+];
+
 export const Navigation = () => (
-	<nav>
-		<ul className="mt-2 flex justify-center space-x-4">
-			<li>
-				<ActiveLink
-					href="/"
-					className="text-blue-400 hover:text-blue-600"
-					activeClassName="font-semibold underline"
-					exact
-				>
-					Home
-				</ActiveLink>
-			</li>
-			<li>
-				<ActiveLink
-					href="/products"
-					className="text-blue-400 hover:text-blue-600"
-					activeClassName="font-semibold underline"
-				>
-					All
-				</ActiveLink>
-			</li>
+	<nav className="scrolling-touch scroll-shadows -mx-2 flex overflow-x-scroll lg:mx-0 lg:h-16 lg:overflow-x-auto">
+		<ul className="flex h-16 max-w-full space-x-8 whitespace-nowrap lg:px-8">
+			{routes.map(({ href, label, exact }) => (
+				<li key={href} className="first:pl-4 last:pr-4 lg:px-0">
+					<ActiveLink
+						href={href}
+						exact={exact}
+					>
+						{label}
+					</ActiveLink>
+				</li>
+			))}
 		</ul>
 	</nav>
 );

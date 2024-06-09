@@ -16,8 +16,6 @@ type ActiveLinkProps = {
 export const ActiveLink = ({
 	href,
 	children,
-	className,
-	activeClassName,
 	exact,
 }: ActiveLinkProps) => {
 	const pathname = usePathname();
@@ -26,7 +24,11 @@ export const ActiveLink = ({
 	return (
 		<Link
 			href={href}
-			className={clsx(className, isActive && activeClassName)}
+			className={
+				clsx(
+					isActive ? "border-blue-500" : "border-transparent",
+					"flex h-full min-w-[3rem] items-center justify-center border-b-2  px-1 pt-1 text-center text-sm font-medium text-slate-500 hover:border-gray-300 hover:text-slate-700",
+				)}
 			{...(isActive ? { "aria-current": true } : {})}
 		>
 			{children}
