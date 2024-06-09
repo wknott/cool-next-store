@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Merriweather_Sans } from "next/font/google";
 import "./globals.css";
+import { clsx } from "clsx";
+import { ShoppingCart } from "lucide-react";
 import { Navigation } from "@/ui/organisms/Navigation";
+import { ActiveLink } from "@/ui/atoms/ActiveLink";
 
-const inter = Inter({ subsets: ["latin"] });
+const fontFamily = Merriweather_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -17,8 +20,21 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>
-				<Navigation />
+			<body className={clsx(fontFamily.className, "flex min-h-screen flex-col font-sans")}>
+				<header className="sticky top-0 z-20 border-b bg-white bg-opacity-60 backdrop-blur-lg">
+					<div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8">
+						<div className="flex flex-col justify-between gap-y-4 pb-4 lg:flex-row lg:items-center lg:pb-0">
+							<Navigation />
+							<div className="flex h-full flex-1 items-center px-2 lg:ml-6 lg:h-16 lg:justify-end">
+								<ActiveLink href={"/cart"}>
+									<ShoppingCart />
+									<span className="p-1"></span>
+									0
+								</ActiveLink>
+							</div>
+						</div>
+					</div>
+				</header>
 				<section className="mx-auto max-w-md p-12 sm:max-w-2xl sm:py-16 md:max-w-4xl lg:max-w-7xl">
 					{children}
 				</section>
