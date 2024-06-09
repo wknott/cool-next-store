@@ -3,7 +3,8 @@ import {
 	type Product,
 	ProductGetByIdDocument,
 	ProductsGetListDocument,
-	CategoriesGetProdutsListBySlugDocument,
+	CategoriesGetProductsListBySlugDocument,
+	CollectionGetProductsListBySlugDocument,
 } from "@/gql/graphql";
 
 export const getProductListFromGraphQL = async (page: number, perPage: number) => {
@@ -22,9 +23,17 @@ export const getProductById = async (productId: Product["id"]) => {
 };
 
 export const getProductListByCategorySlug = async (slug: string) => {
-	const graphqlResponse = await executeGraphql(CategoriesGetProdutsListBySlugDocument, {
+	const graphqlResponse = await executeGraphql(CategoriesGetProductsListBySlugDocument, {
 		slug,
 	});
 
 	return graphqlResponse.category;
+};
+
+export const getProductListByCollectionSlug = async (slug: string) => {
+	const graphqlResponse = await executeGraphql(CollectionGetProductsListBySlugDocument, {
+		slug,
+	});
+
+	return graphqlResponse.collection;
 };
